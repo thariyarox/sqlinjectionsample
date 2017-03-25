@@ -1,0 +1,21 @@
+CREATE TABLE `webapp`.`users` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `username` VARCHAR(30) NOT NULL,
+    `password` CHAR(128) NOT NULL
+) ENGINE = InnoDB;
+
+INSERT INTO `webapp`.`users` VALUES (null, 'roy', 'passw0rd'); 
+INSERT INTO `webapp`.`users` VALUES (null, 'angel', 'abc123'); 
+INSERT INTO `webapp`.`users` VALUES (null, 'ibrahim', '1234'); 
+
+CREATE TABLE `webapp`.`products` (
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `product_name` VARCHAR(30) NOT NULL,
+    `product_price` DECIMAL(4,2) NOT NULL
+) ENGINE = InnoDB;
+
+INSERT INTO `webapp`.`products` VALUES (null, 'sugar', '3.00' );
+INSERT INTO `webapp`.`products` VALUES (null, 'salt', '3.00');
+INSERT INTO `webapp`.`products` VALUES (null, 'tea', '2.00');
+INSERT INTO `webapp`.`products` VALUES (null, 'rice', '5.00');
+INSERT INTO `webapp`.`products` VALUES (null, 'coffee', '4.00');
