@@ -29,16 +29,27 @@ public class Search extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+
+        out.println("<!DOCTYPE html><body>");
+
+        out.println("<h2><a href=\"search.jsp\">Search Product</a> | <a href=\"add.jsp\">Add Product</a> </h2>");
+
         try {
 
             String product_name = request.getParameter("product_name");
 
+            out.println("<br/>");
+
+            out.println("Displaying results for product: " + product_name);
+
+            out.println("<br/>");
+            out.println("<br/>");
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webapp", "root", "mypassword");
 
                 Statement st = conn.createStatement();
-                String sql = "SELECT product_name, product_price FROM products WHERE product_name='" + product_name + "'";
+                String sql = "SELECT product_name, product_price FROM products WHERE product_name LIKE '%" + product_name + "%'";
                 System.out.println(sql);
                 ResultSet rs = st.executeQuery(sql);
 
@@ -56,7 +67,10 @@ public class Search extends HttpServlet {
                 e.printStackTrace();
             }
         } finally {
+            out.println("</body></html>");
             out.close();
         }
+
+
     }
 }

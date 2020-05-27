@@ -14,6 +14,8 @@ You are not logged in<br/>
 <%} else {
 %>
 Welcome <%=session.getAttribute("username")%>
+<h2><a href="add.jsp">Add Product</a></h2>
+
 <h1>Search Product</h1>
 <form action="search" method="get">
     Product Name: <input type="text" name="product_name" value="" /><br />
